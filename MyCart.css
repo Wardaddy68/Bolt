@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    background-color: #000;
+    font-family: 'Quicksand', sans-serif, 'Work Sans', sans-serif;
+    background-image: url("spayder.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 0;
+  }
+  .box{
+    width: 400px;
+    height: auto;
+    padding: auto;
+    color: white;
+  }
+  p{
+    color: black;
+  }
+  h1{
+    color: black;
+  }
+  li {
+    list-style: none;
+  }
+  
+  a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  a:after {
+    content: "";
+    position: absolute;
+    background-color: yellow;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.4s;
+  }
+  
+  a:hover {
+    color: yellow;
+  }
+  
+  header {
+    position: relative;
+    padding: 0 2rem;
+  }
+  
+  .navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar .logo a {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    font-weight: bold;
+  }
+  
+  .navbar .links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .box {
+    width: 800px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+  .button {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 1px;
+    
+  }
+  .product-item {
+    border: 1px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .button-clear {
+      background-color: #f44336;
+      margin-right: 10px;
+    }
+
+  .button-clear:hover {
+    background-color: yellow;
+    color: black;
+    font-weight: 600;
+  }
+  
+  .button-checkout {
+    background-color: #000;
+  }
+  .button-checkout:hover {
+    background-color: yellow;
+    color: black;
+    font-weight: 600;
+  }
+  .total-price
+  {
+    font-size: 18px;
+    font-weight: 600;
+    color: green;
+    float:right;
+    
+  }

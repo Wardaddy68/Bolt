@@ -1,0 +1,230 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="PS4Page.css" />
+    <title>PS4</title>
+    <html lang="en">
+      <script>
+        function addToCart(name, price) {
+          // Encode the name and price to be passed as URL parameters
+          const encodedName = encodeURIComponent(name);
+          const encodedPrice = encodeURIComponent(price);
+      
+          // Retrieve the existing cart items from local storage
+          const cartItems = localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [];
+      
+          // Add the current item to the cart
+          cartItems.push({ name: encodedName, price: encodedPrice });
+      
+          // Store the updated cart items in local storage
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      
+          // Optionally, you can display an alert
+          alert("Added to cart successfully");
+      
+          // Recalculate and update the total price in the cart
+          calculateTotalPrice();
+        }
+      
+        // Function to calculate the total price of the items in the cart
+        function calculateTotalPrice() {
+          const cartItems = localStorage.getItem("cartItems")
+            ? JSON.parse(localStorage.getItem("cartItems"))
+            : [];
+      
+          let totalPrice = 0;
+      
+          cartItems.forEach((item) => {
+            const price = parseFloat(decodeURIComponent(item.price));
+            totalPrice += price;
+          });
+      
+          // Display the total price in the cart
+          const totalPriceElement = document.getElementById("total-price");
+          totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+        }
+      </script>
+      
+      
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo"><a href="Main Page.html">BOLT</a></div>
+        <ul class="links">
+          <li><a href="PS5Page.html">PS5</a></li>
+          <li><a href="#">PS4</a></li>
+          <li><a href="product.html">MyCart</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="box">
+      <div class="ps4">
+        <img src="lastps4.jpg" class="mejoheder" />
+      </div>
+      <div class="container">
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg?20220202021059"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('God of War', '3000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png?20221021000408"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Grand Theft Auto V', '2000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg?20230109164036"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Red Dead Redemption II', '2500')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/f/fd/Resident_Evil_2_Remake.jpg?20201114021842"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Resident Evil 2 ', '3000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/d/dc/Resident_Evil_3.jpg?20191214162502"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Resident Evil 3', '3000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/a/ac/NBA_2K19_cover_art.jpg?20180702163042"
+          />
+          <div class="description">
+            <button class="add-to-cart" onclick="addToCart('NBA 2K19', '1000')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg?20200707000147"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Ghost of Tsushima', '2500')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/e/e1/Spider-Man_PS4_cover.jpg?20211020000649"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Spider-man', '2000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/5/56/The_Evil_Within_boxart.jpg?20211024173604"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('The Evil Within', '1000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/b/bf/The_Evil_Within_2_cover_art.jpg?20211024173612"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('The Evil Within II', '2000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/1/1a/Uncharted_4_box_artwork.jpg?20180104065942"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Uncharted 4 ', '1000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="ui-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/2/28/Assassin%27s_Creed_IV_-_Black_Flag_cover.jpg?20220310143018"
+          />
+          <div class="description">
+            <button
+              class="add-to-cart"
+              onclick="addToCart('Assasins Creed IV', '1000')"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

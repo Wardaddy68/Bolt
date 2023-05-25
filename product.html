@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="MyCart.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Product Details</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo"><a href="Main Page.html">BOLT</a></div>
+        <ul class="links">
+          <li><a href="PS5Page.html">PS5</a></li>
+          <li><a href="PS4Page.html">PS4</a></li>
+          <li><a href="product.html">MyCart</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="box">
+      <h1>Cart</h1>
+      <div id="product-info"></div>
+      <br />
+      <p id="total-price" class="total-price"></p>
+      <button onclick="clearCart()" class="button button-clear">
+        Clear Cart
+      </button>
+      <button onclick="checkout()" class="button button-checkout">
+        Checkout
+      </button>
+    </div>
+    <script>
+      // Retrieve the cart items from local storage
+      const cartItems = localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [];
+
+      // Display the cart items on the page
+      const productInfoElement = document.getElementById("product-info");
+      const totalPriceElement = document.getElementById("total-price");
+
+      function displayCartItems() {
+        if (cartItems.length === 0) {
+          productInfoElement.innerHTML = "<p>No items in the cart.</p>";
+          totalPriceElement.textContent = "Total Price: ₱0.00";
+        } else {
+          productInfoElement.innerHTML = "";
+          let totalPrice = 0;
+
+          cartItems.forEach((item) => {
+            const name = decodeURIComponent(item.name);
+            const price = parseFloat(decodeURIComponent(item.price));
+
+            const itemElement = document.createElement("div");
+            itemElement.innerHTML = `
+              <p>${name} || ${price.toFixed(2)}</p>
+            `;
+
+            productInfoElement.appendChild(itemElement);
+
+            totalPrice += price;
+          });
+
+          totalPriceElement.textContent = `Total Price: ₱${totalPrice.toFixed(
+            2
+          )}`;
+        }
+      }
+
+      // Function to clear the cart
+      function clearCart() {
+        localStorage.removeItem("cartItems");
+        cartItems.length = 0;
+        displayCartItems();
+      }
+
+      // Function to process checkout
+      function checkout() {
+        if (cartItems.length === 0) {
+          alert("Your cart is empty. Add items before checking out.");
+        } else {
+          // Process the checkout logic here
+          // ...
+
+          // Clear the cart and display success message
+          clearCart();
+          alert("Successfully checked out!");
+        }
+      }
+
+      displayCartItems(); // Call the function to display the cart items and total price
+    </script>
+  </body>
+</html>
